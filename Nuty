@@ -1,0 +1,38 @@
+\version "2.24.0"
+\header {
+  title = "Fanfara do 'Wśród nocnej ciszy'"
+  subtitle = "dla dwóch trąbek B (G-dur)"
+  composer = "oprac. ChatGPT"
+}
+
+global = {
+  \key g \major
+  \time 4/4
+}
+
+trumpetOne = \relative c'' {
+  \global
+  g4 d g c | g d g fis |
+  g c d g | g a b c |
+  b a g d | g d' g fis |
+  g2 g | d4 g fis g
+}
+
+trumpetTwo = \relative c'' {
+  \global
+  e4 b e a | e b e dis |
+  e a b e | e fis g a |
+  g fis e b | e b' e dis |
+  e2 e | b4 e dis e
+}
+
+\score {
+  <<
+    \new StaffGroup <<
+      \new Staff \with { instrumentName = "Trąbka I" } { \trumpetOne }
+      \new Staff \with { instrumentName = "Trąbka II" } { \trumpetTwo }
+    >>
+  >>
+  \layout { }
+  \midi { \tempo 4 = 96 }
+}
